@@ -62,30 +62,31 @@ $(document).ready(function() {
         console.log(result);
         console.log("Woo");
 
-      },
+        // so this is where we are going to perform the search for songs 
+        var spotifyPlaylistId = result.id 
+        var urlStringForPlaylist = 'https://api.spotify.com/v1/playlists/' + spotifyPlaylistId + '/tracks?uris=' + songs.join()
+        $.ajax({
+          type: "POST",
+          url: urlStringForPlaylist,
+          data: JSON.stringify(jsonData),
+          dataType: "json",
+          headers: {
+            Authorization: "Bearer " + access_token
+          },
+          successs: function(result) {
+            console.log("songs were added holy shit!!!")
+          },
+          error: function(error) {
+            console.log(error);
+            console.log("this ERROR happened in adding songs to playlist");
+          }
+        }); // this closes second ajax call to add songs to playlist
+      }, // this closes the success for 1st ajax call 
       error: function(error) {
         console.log(error);
-        console.log("Error");
+        console.log("this ERROR happened in playlist creation");
       }
-    
-
-        // so this is where we are going to perform the search for songs 
-        // var spotifyPlaylistId = result.id 
-        // var urlStringForPlaylist = 'https://api.spotify.com/v1/playlists/' + spotifyPlaylistId + '/tracks?uris=' + spotifyTracksArray.replace
-        // $.ajax({
-        //   type: "POST",
-        //   url: urlStringForPlaylist,
-        //   data: JSON.stringify(jsonData),
-        //   dataType: "json",
-        //   headers: {
-        //     Authorization: "Bearer " + access_token
-        //   },
-
-        // spotifyTracksArray
-
-   
-  });
-}
+    }); // this closes first ajax call to create playlist
 
   $("#playlist").on("click", function() {
     makePlaylist(access_token, user);
@@ -185,7 +186,7 @@ $(document).ready(function() {
               });
 
             }
-            // makePlaylist(access_token, user, spotifyTracksArray)
+            makePlaylist(access_token, user, spotifyTracksArray);
             // console.log('these are the songs i need to search for: ' + $(this).attr('data-songs'))
           },
           'data-songs': songs[i]
