@@ -72,6 +72,10 @@ $(document).ready(function() {
           },
           error: function(error) {
             console.log(error);
+            console.log("this ERROR happened in making playlist");
+          },
+          error: function(error) {
+            console.log(error);
             console.log("this ERROR happened in adding songs to playlist");
           }
         }); // this closes second ajax call to add songs to playlist
