@@ -41,7 +41,7 @@ $(document).ready(function() {
     var urlString = "https://api.spotify.com/v1/users/" + user.id + "/playlists";
 
     var jsonData = {
-      name: "My Fucking Playlist",
+      name: "My SetlistFM Playlist",
       public: false
     };
 
