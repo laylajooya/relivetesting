@@ -20,6 +20,8 @@ $(document).ready(function() {
   
     // Replace with your app's client ID, redirect URI and desired scopes
     const clientId = "abf37ff11aff48afb9ba75f4debfc293";
+    //redirect URI
+    
     const redirectUri = "https://laylajooya.github.io/relivetesting/search.html";
     // const redirectUri = "https://relive-project1.herokuapp.com/search.html";
   

@@ -63,18 +63,17 @@ $(document).ready(function() {
           console.log("Woo");
   
           // so this is where we are going to perform the search for songs 
-          var spotifyPlaylistId = result.id 
-          var urlStringForPlaylist = 'https://api.spotify.com/v1/playlists/' + spotifyPlaylistId + '/tracks?uris=' + spotifyTracksArray.replace
-          $.ajax({
-            type: "POST",
-            url: urlStringForPlaylist,
-            data: JSON.stringify(jsonData),
-            dataType: "json",
-            headers: {
-              Authorization: "Bearer " + access_token
-            },
+          // var spotifyPlaylistId = result.id 
+          // var urlStringForPlaylist = 'https://api.spotify.com/v1/playlists/' + spotifyPlaylistId + '/tracks?uris=' + spotifyTracksArray.replace
+          // $.ajax({
+          //   type: "POST",
+          //   url: urlStringForPlaylist,
+          //   data: JSON.stringify(jsonData),
+          //   dataType: "json",
+          //   headers: {
+          //     Authorization: "Bearer " + access_token
+          //   },
   
-          spotifyTracksArray
   
         },
         error: function(error) {
@@ -82,7 +81,8 @@ $(document).ready(function() {
           console.log("Error");
         }
       });
-    }
+    
+    
   
     $("#playlist").on("click", function() {
       makePlaylist(access_token, user);
